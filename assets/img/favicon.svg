@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#111111"/>
+  <rect width="64" height="64" fill="#ffffff"/>
   <svg x="8" y="16.8" width="48" height="30.4" viewBox="0 0 1000 633">
-    <g fill="#ffffff">
+    <g fill="#111111">
       <g transform="matrix(1,0,0,1,-40,-358.977117)">
         <g transform="matrix(2.320789,0,0,2.320789,-594.865687,-798.305225)">
           <g transform="matrix(0.726761,0,0,0.726761,86.977284,222.295289)">
