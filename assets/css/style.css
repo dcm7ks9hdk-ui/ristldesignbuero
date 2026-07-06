@@ -233,7 +233,7 @@ a { color: inherit; text-decoration: none; }
 
 .project-body { max-width: 62ch; padding-bottom: 3rem; }
 .project-body p + p { margin-top: 1rem; }
-.project-body .definition {
+.definition {
   font-size: 1.15rem;
   line-height: 1.5;
   border-left: 2px solid var(--ink);
@@ -243,6 +243,66 @@ a { color: inherit; text-decoration: none; }
 
 .project-figures { display: grid; gap: 2.5rem; padding-bottom: clamp(4rem, 10vh, 7rem); }
 .project-figures figcaption { margin-top: 0.6rem; }
+
+/* ---- Kapitel (Projektseite) --------------------------------------------- */
+
+.chapter { padding-top: clamp(3rem, 8vh, 5rem); }
+
+.chapter-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  border-top: 1px solid var(--ink);
+  padding-top: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.chapter-head .nr { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); letter-spacing: 0.06em; }
+.chapter-head h2 { font-size: clamp(1.3rem, 3vw, 1.9rem); font-weight: 500; letter-spacing: -0.01em; }
+
+.chapter .text { max-width: 62ch; color: var(--ink); margin-bottom: 2.5rem; }
+.chapter .text p + p { margin-top: 0.8rem; }
+
+/* Kapitel-Inhaltsverzeichnis */
+.chapter-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  margin: 2rem 0 0;
+}
+.chapter-index a { color: var(--ink-soft); }
+.chapter-index a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.chapter-index a::before { content: "["; }
+.chapter-index a::after { content: "]"; }
+
+/* Bild-Raster in Kapiteln */
+.figs { display: grid; gap: 2.5rem var(--space); margin-bottom: 1rem; }
+.figs.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 700px) { .figs.two { grid-template-columns: 1fr; } }
+.figs figure img, .figs figure video { border: 1px solid var(--hairline); }
+.figs figcaption { margin-top: 0.6rem; }
+
+video { display: block; width: 100%; height: auto; }
+
+/* Farbklang-Palette */
+.palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.5rem;
+  margin: 2rem 0 1rem;
+}
+.palette .swatch { border: 1px solid var(--hairline); }
+.palette .swatch .color { aspect-ratio: 1 / 1; }
+.palette .swatch .hex {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  padding: 0.35rem 0.4rem;
+}
 
 .backlink { display: inline-block; margin-bottom: 2rem; }
 .backlink::before { content: "← "; }
