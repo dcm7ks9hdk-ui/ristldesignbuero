@@ -262,7 +262,8 @@ a:focus-visible {
 .project-meta dt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.2rem; }
 .project-meta dd { font-size: 0.92rem; }
 
-.project-body { max-width: 62ch; padding-bottom: 3rem; }
+.project-body { padding-bottom: 3rem; }
+.project-body p { max-width: 62ch; }
 .project-body p + p { margin-top: 1rem; }
 .definition {
   font-size: 1.15rem;
@@ -317,6 +318,78 @@ a:focus-visible {
 .figs figcaption { margin-top: 0.6rem; }
 
 video { display: block; width: 100%; height: auto; }
+
+/* ---- Bild-Set mit Layout-Breiten (Studio-Projekte) ---------------------- */
+
+.figset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem var(--space);
+  align-items: flex-start;
+  padding-bottom: clamp(4rem, 10vh, 7rem);
+}
+.figset figure { margin: 0; }
+.figset figure img { border: 1px solid var(--hairline); }
+.figset figcaption { margin-top: 0.6rem; }
+
+.fig-full  { flex: 0 0 100%; }
+.fig-half  { flex: 0 0 calc(50% - var(--space) / 2); }
+.fig-small { flex: 0 0 calc(33.333% - var(--space) * 2 / 3); }
+
+@media (max-width: 700px) {
+  .fig-half, .fig-small { flex: 0 0 100%; }
+}
+
+/* ---- Wisch-Galerie (Carousel) ------------------------------------------- */
+
+.carousel-wrap { position: relative; padding-bottom: clamp(4rem, 10vh, 7rem); }
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 0;
+  scrollbar-width: none;
+  border: 1px solid var(--hairline);
+}
+.carousel::-webkit-scrollbar { display: none; }
+
+.carousel figure {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  margin: 0;
+}
+.carousel figure img { width: 100%; display: block; }
+.carousel figcaption {
+  padding: 0.6rem 0.8rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.carousel-nav button {
+  font: inherit;
+  background: none;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+.carousel-nav button:hover { background: var(--ink); color: var(--paper); }
+.carousel-dots { display: flex; gap: 0.4rem; }
+.carousel-dots span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--hairline); transition: background 0.15s;
+}
+.carousel-dots span.on { background: var(--ink); }
 
 /* Farbklang-Palette */
 .palette {
