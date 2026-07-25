@@ -340,6 +340,12 @@ video { display: block; width: 100%; height: auto; }
   .fig-half, .fig-small { flex: 0 0 100%; }
 }
 
+/* ---- Full-Bleed-Bild (randlos, volle Breite) ---------------------------- */
+
+figure.bleed { margin: clamp(2rem, 6vh, 4rem) 0; }
+figure.bleed img { width: 100%; display: block; }
+figure.bleed figcaption { max-width: var(--maxw); margin: 0.6rem auto 0; padding: 0 var(--space); }
+
 /* ---- Wisch-Galerie (Carousel) ------------------------------------------- */
 
 .carousel-wrap { position: relative; padding-bottom: clamp(4rem, 10vh, 7rem); }
