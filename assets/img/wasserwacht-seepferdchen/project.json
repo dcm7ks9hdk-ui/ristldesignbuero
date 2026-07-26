@@ -1,0 +1,137 @@
+{
+  "title": "Wasserwacht \"Seepferdchen\"",
+  "slug": "wasserwacht-seepferdchen",
+  "context": "Building construction, timber focus",
+  "period": "Summer 2026",
+  "disciplines": "Construction · Timber · Design",
+  "year": "2026",
+  "cover": "cover.jpg",
+  "media": [
+    "05.jpg",
+    "06.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "13.jpg",
+    "14.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg",
+    "22.jpg",
+    "23.jpg",
+    "24.jpg",
+    "25.jpg",
+    "26.jpg",
+    "27.jpg",
+    "28.jpg",
+    "cover.jpg"
+  ],
+  "blocks": [
+    {
+      "type": "intro",
+      "file": "cover.jpg",
+      "text": "The design combines function with a clear architecture that responds both to the operational needs of the service and to the sensitive setting by the water. The facade of vertical charred cedar slats (Shou-Sugi-Ban) reads bold and dark while resisting weathering and moisture. Inside, the vertical rhythm continues in pale lacquered silver fir, a warm contrast to the dark exterior. A mono-pitch roof with exposed timber beams underlines the constructive character of the build. Oak parquet inside, with oak boards and railings on the terrace and jetties, carries the material concept out into the landscape.\n\nThe rooms are arranged in a U around the central boat hall — the heart of the building — ensuring short routes and an efficient workflow. Large sliding doors link the first-aid room to the boat hall and the outdoors for fast, barrier-free access during operations. Kitchenette and lounge open onto the terrace, while the radio room frames views of the lido through generous glazing. The boat hall is reachable from all sides via surrounding steps.\n\nStructurally the building rests on an elevated timber construction with reinforced-concrete bored piles that accommodate the changing water levels. A glue-laminated timber frame, combined with timber-frame and skeleton construction, forms a clearly legible, economical and resource-efficient structure. Tuned to the needs of the water-rescue service and the climate of the site."
+    },
+    {
+      "type": "heading",
+      "kicker": "01",
+      "text": "Visualisation"
+    },
+    {
+      "type": "gallery",
+      "items": [
+        {
+          "file": "18.jpg",
+          "caption": "East Elevation"
+        },
+        {
+          "file": "14.jpg",
+          "caption": "South Elevation"
+        },
+        {
+          "file": "13.jpg",
+          "caption": "North Elevation"
+        },
+        {
+          "file": "16.jpg",
+          "caption": "West Elevation"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "kicker": "02",
+      "text": "Drawings & structure"
+    },
+    {
+      "type": "gallery",
+      "items": [
+        {
+          "file": "09.jpg",
+          "caption": "Site Plan"
+        },
+        {
+          "file": "08.jpg",
+          "caption": "Floorplan - Scale 1:20"
+        },
+        {
+          "file": "10.jpg",
+          "caption": "Floorplan - Scale 1:50"
+        },
+        {
+          "file": "23.jpg",
+          "caption": "Structural framing plan"
+        },
+        {
+          "file": "21.jpg",
+          "caption": "Structural System"
+        },
+        {
+          "file": "05.jpg",
+          "caption": "Section B-B - Scale 1:50"
+        },
+        {
+          "file": "20.jpg",
+          "caption": "Section A-A - Scale 1:50"
+        },
+        {
+          "file": "22.jpg",
+          "caption": "Construction detail"
+        },
+        {
+          "file": "24.jpg",
+          "caption": "Stair & section details - Scale 1:5"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "kicker": "03",
+      "text": "Model 1:50"
+    },
+    {
+      "type": "gallery",
+      "items": [
+        {
+          "file": "25.jpg",
+          "caption": ""
+        },
+        {
+          "file": "26.jpg",
+          "caption": ""
+        },
+        {
+          "file": "28.jpg",
+          "caption": ""
+        },
+        {
+          "file": "27.jpg",
+          "caption": ""
+        }
+      ]
+    }
+  ]
+}
