@@ -365,11 +365,26 @@ figure.bleed figcaption { max-width: var(--maxw); margin: 0.6rem auto 0; padding
   flex: 0 0 100%;
   scroll-snap-align: center;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
-.carousel figure img { width: 100%; display: block; }
+/* einheitliche Höhe, ganzes Bild sichtbar (kein Beschnitt) → gemischte Formate wirken ruhig */
+.carousel figure img {
+  width: 100%;
+  height: min(72vh, 760px);
+  object-fit: contain;
+  background: #f6f6f4;
+  display: block;
+  cursor: zoom-in;
+}
 .carousel figcaption {
   padding: 0.6rem 0.8rem;
   border-top: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  min-height: 1.2rem;
 }
 
 .carousel-nav {
@@ -396,6 +411,68 @@ figure.bleed figcaption { max-width: var(--maxw); margin: 0.6rem auto 0; padding
   background: var(--hairline); transition: background 0.15s;
 }
 .carousel-dots span.on { background: var(--ink); }
+
+/* ---- Zoom / Lightbox ---------------------------------------------------- */
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(17, 17, 17, 0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox.on { display: flex; }
+#lightbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; max-width: 94vw; }
+#lightbox img {
+  max-width: 94vw;
+  max-height: 86vh;
+  object-fit: contain;
+  cursor: zoom-out;
+}
+#lightbox figcaption {
+  color: #f4f4f2;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  margin-top: 0.9rem;
+  text-align: center;
+}
+#lightbox button {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  padding: 8px 16px;
+}
+#lightbox .lb-close { top: 14px; right: 20px; font-size: 34px; }
+#lightbox .lb-prev, #lightbox .lb-next {
+  top: 50%; transform: translateY(-50%); font-size: 54px;
+}
+#lightbox .lb-prev { left: 6px; }
+#lightbox .lb-next { right: 6px; }
+#lightbox button:hover { color: #b7c0c6; }
+#lightbox .lb-count {
+  position: absolute; bottom: 16px; left: 0; right: 0; text-align: center;
+  color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em;
+}
+
+/* ---- Intro-Block: Coverfoto links, Text rechts -------------------------- */
+
+.project-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space);
+  align-items: start;
+  padding: clamp(1rem, 4vh, 2.5rem) 0 clamp(2rem, 6vh, 4rem);
+}
+@media (max-width: 760px) { .project-intro { grid-template-columns: 1fr; } }
+.project-intro .cover img { width: 100%; border: 1px solid var(--hairline); display: block; }
+.project-intro .txt { max-width: 60ch; }
+.project-intro .txt p + p { margin-top: 0.9rem; }
 
 /* Farbklang-Palette */
 .palette {
