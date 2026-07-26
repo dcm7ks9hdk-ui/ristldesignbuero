@@ -7,26 +7,25 @@
   "year": "2026",
   "cover": "cover.jpg",
   "media": [
-    "05.jpg",
-    "06.jpg",
-    "08.jpg",
-    "09.jpg",
-    "10.jpg",
     "13.jpg",
     "14.jpg",
     "16.jpg",
     "17.jpg",
     "18.jpg",
     "19.jpg",
-    "20.jpg",
-    "21.jpg",
-    "22.jpg",
-    "23.jpg",
-    "24.jpg",
     "25.jpg",
     "26.jpg",
     "27.jpg",
     "28.jpg",
+    "30.jpg",
+    "31.jpg",
+    "32.jpg",
+    "33.jpg",
+    "34.jpg",
+    "35.jpg",
+    "36.jpg",
+    "37.jpg",
+    "38.jpg",
     "cover.jpg"
   ],
   "blocks": [
@@ -70,40 +69,40 @@
       "type": "gallery",
       "items": [
         {
-          "file": "09.jpg",
+          "file": "30.jpg",
           "caption": "Site Plan"
         },
         {
-          "file": "08.jpg",
-          "caption": "Floorplan - Scale 1:20"
+          "file": "38.jpg",
+          "caption": "Floor Plan - Scale 1:100"
         },
         {
-          "file": "10.jpg",
-          "caption": "Floorplan - Scale 1:50"
+          "file": "35.jpg",
+          "caption": "Floor Plan - Scale 1:50"
         },
         {
-          "file": "23.jpg",
-          "caption": "Structural framing plan"
+          "file": "36.jpg",
+          "caption": "Construction Plan - Scale 1:50"
         },
         {
-          "file": "21.jpg",
-          "caption": "Structural System"
-        },
-        {
-          "file": "05.jpg",
-          "caption": "Section B-B - Scale 1:50"
-        },
-        {
-          "file": "20.jpg",
+          "file": "31.jpg",
           "caption": "Section A-A - Scale 1:50"
         },
         {
-          "file": "22.jpg",
-          "caption": "Construction detail"
+          "file": "32.jpg",
+          "caption": "Section B-B - Scale 1:50"
         },
         {
-          "file": "24.jpg",
-          "caption": "Stair & section details - Scale 1:5"
+          "file": "33.jpg",
+          "caption": "Structural System"
+        },
+        {
+          "file": "34.jpg",
+          "caption": "Third-Angle Projection - Wall Assembly"
+        },
+        {
+          "file": "37.jpg",
+          "caption": "Stair Detail - Scale 1:5"
         }
       ]
     },
