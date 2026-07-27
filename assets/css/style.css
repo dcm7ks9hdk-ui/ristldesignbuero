@@ -208,6 +208,7 @@ a:focus-visible {
 
 .project-card .caption {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.2rem 1rem;
@@ -215,7 +216,7 @@ a:focus-visible {
 }
 
 .project-card .caption .mono { text-align: right; white-space: nowrap; }
-.project-card .cap-main { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.project-card .cap-main { display: flex; flex-direction: column; gap: 0.15rem; flex: 1 1 auto; min-width: 60%; }
 .project-card .card-sub { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.35; }
 
 @media (max-width: 560px) {
