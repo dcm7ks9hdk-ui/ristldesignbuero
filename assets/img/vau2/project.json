@@ -17,7 +17,7 @@
     {
       "type": "intro",
       "file": "01.jpg",
-      "text": "Der VAU2 ist ein vielseitiger, modularer Tischbock, der Funktionalität, Mobilität und platzsparende Lagerung vereint. Sein durchdachtes Konstruktionsprinzip ermöglicht einen werkzeuglosen Auf- und Abbau und macht ihn sowohl für temporäre Arbeitsplätze als auch für den dauerhaften Einsatz geeignet.\n\nEigenschaften\n\n* Klappbar – lässt sich in wenigen Sekunden zusammenfalten und platzsparend verstauen.\n* Flatpack-Prinzip – alle Bauteile können flach transportiert und gelagert werden.\n* Stapelbar – zusammengeklappte Tischböcke lassen sich effizient übereinander stapeln.\n* Werkzeuglose Montage und Demontage – schneller Auf- und Abbau ohne Schrauben oder zusätzliches Werkzeug.\n* Modular einsetzbar – sowohl paarweise als klassischer Tischbock als auch einzeln mit einer kleinen Tischplatte als kompakter Beistell- oder Arbeitstisch nutzbar.\n\nDer VAU2 verbindet eine klare Konstruktion mit hoher Flexibilität und eignet sich für Arbeits-, Ausstellungs- und Wohnbereiche gleichermaßen."
+      "text": "conceived construction principle allows for tool-free assembly and disassembly, making it suitable for both temporary workspaces and permanent use.\n\nFeatures:\n\nFoldable – collapses in seconds for space-saving storage.\nFlat-pack design – all components can be transported and stored flat.\nStackable – folded trestles stack neatly on top of one another.\nTool-free assembly and disassembly – quick setup and takedown without screws or additional tools.\nModular use – works as a classic trestle in pairs, or individually with a small tabletop as a compact side or work table.\nThe VAU2 unites clear construction with high flexibility, making it equally suited to work, exhibition, and living spaces."
     },
     {
       "type": "gallery",
@@ -48,5 +48,6 @@
       "type": "text",
       "text": "This project was created in collaboration with Kilian Ritter (@ritter__studio)."
     }
-  ]
+  ],
+  "subtitle": "Modular flat-pack trestle, assembled without tools."
 }
