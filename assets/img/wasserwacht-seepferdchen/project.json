@@ -47,12 +47,12 @@
           "caption": "East Elevation"
         },
         {
-          "file": "14.jpg",
-          "caption": "South Elevation"
-        },
-        {
           "file": "13.jpg",
           "caption": "North Elevation"
+        },
+        {
+          "file": "14.jpg",
+          "caption": "South Elevation"
         },
         {
           "file": "16.jpg",
@@ -131,6 +131,10 @@
           "caption": ""
         }
       ]
+    },
+    {
+      "type": "text",
+      "text": "This project was created in collaboration with Franziska Grupe."
     }
   ]
 }

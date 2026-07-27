@@ -1,0 +1,48 @@
+{
+  "title": "VAU2",
+  "slug": "vau2",
+  "context": "Design",
+  "period": "SoSe2026",
+  "disciplines": "Mobeldesign, Konstruktion, Entwurf",
+  "year": "2026",
+  "cover": "01.jpg",
+  "media": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg"
+  ],
+  "blocks": [
+    {
+      "type": "intro",
+      "file": "01.jpg",
+      "text": "Der VAU2 ist ein vielseitiger, modularer Tischbock, der Funktionalität, Mobilität und platzsparende Lagerung vereint. Sein durchdachtes Konstruktionsprinzip ermöglicht einen werkzeuglosen Auf- und Abbau und macht ihn sowohl für temporäre Arbeitsplätze als auch für den dauerhaften Einsatz geeignet.\n\nEigenschaften\n\n* Klappbar – lässt sich in wenigen Sekunden zusammenfalten und platzsparend verstauen.\n* Flatpack-Prinzip – alle Bauteile können flach transportiert und gelagert werden.\n* Stapelbar – zusammengeklappte Tischböcke lassen sich effizient übereinander stapeln.\n* Werkzeuglose Montage und Demontage – schneller Auf- und Abbau ohne Schrauben oder zusätzliches Werkzeug.\n* Modular einsetzbar – sowohl paarweise als klassischer Tischbock als auch einzeln mit einer kleinen Tischplatte als kompakter Beistell- oder Arbeitstisch nutzbar.\n\nDer VAU2 verbindet eine klare Konstruktion mit hoher Flexibilität und eignet sich für Arbeits-, Ausstellungs- und Wohnbereiche gleichermaßen."
+    },
+    {
+      "type": "gallery",
+      "items": [
+        {
+          "file": "01.jpg",
+          "caption": ""
+        },
+        {
+          "file": "05.jpg",
+          "caption": ""
+        },
+        {
+          "file": "04.jpg",
+          "caption": ""
+        },
+        {
+          "file": "03.jpg",
+          "caption": ""
+        },
+        {
+          "file": "02.jpg",
+          "caption": ""
+        }
+      ]
+    }
+  ]
+}
