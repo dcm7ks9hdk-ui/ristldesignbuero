@@ -43,6 +43,10 @@
           "caption": ""
         }
       ]
+    },
+    {
+      "type": "text",
+      "text": "This project was created in collaboration with Kilian Ritter (@ritter__studio)."
     }
   ]
 }
