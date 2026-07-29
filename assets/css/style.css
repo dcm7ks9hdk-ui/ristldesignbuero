@@ -320,11 +320,18 @@ a:focus-visible {
 /* Sichtfenster: folgt der angesteuerten Zeile */
 .index-preview { position: sticky; top: 7rem; }
 
+/* Ruhezustand: leer. Das Bild erscheint erst beim Ansteuern einer Zeile. */
 .index-preview-frame {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 1px solid var(--hairline);
+  border: 1px solid transparent;
+  background: transparent;
+  transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.index-preview-frame.on {
+  border-color: var(--hairline);
   background: #f6f6f4;
 }
 
