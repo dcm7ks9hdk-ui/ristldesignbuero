@@ -187,7 +187,7 @@ a:focus-visible {
   font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.015em;
-  max-width: 22ch;
+  max-width: none;
   text-wrap: balance;
 }
 
@@ -234,6 +234,9 @@ a:focus-visible {
   padding-top: 0.7rem;
   margin-bottom: 2rem;
 }
+
+/* Nur eine Angabe im Kopf: bleibt rechtsbündig */
+.section-head.only-right { justify-content: flex-end; }
 
 /* ---- Werk-Register ------------------------------------------------------
    Projekte als Index (Nummer · Titel · Einordnung), rechts ein ruhiges
@@ -303,6 +306,9 @@ a:focus-visible {
   white-space: normal;
   line-height: 1.5;
 }
+
+/* Jahreszahl steht immer allein in der letzten Zeile, ohne Trennzeichen */
+.project-card .caption .mono .meta-year { display: block; }
 
 /* Fokus auf die angesteuerte Zeile: der Rest tritt zurück */
 @media (hover: hover) {
