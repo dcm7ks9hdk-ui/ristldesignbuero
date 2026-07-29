@@ -1,14 +1,57 @@
 /* ========================================================================
    RISTL.DESIGNBUERO — site.js
-   Sprachumschalter DE/EN, ohne externe Abhängigkeiten, DSGVO-sicher.
+   Ohne externe Abhängigkeiten, DSGVO-sicher.
+   1) Sprachumschalter DE/EN
+   2) Einordnung im Werk-Register: Fach oben, Jahreszahl darunter
+   3) Sichtfenster, das der angesteuerten Zeile folgt
+   ======================================================================== */
+
+/* ---- 2) Einordnung umbrechen -------------------------------------------
+   Das Studio schreibt "<Fach> · <Jahr>" in eine Zeile. Hier wird daraus:
+   Fach (an Kommata umgebrochen), Jahreszahl allein in der letzten Zeile,
+   ohne Trennzeichen und ohne Semesterangabe. Mehrfach aufrufbar.
+   ------------------------------------------------------------------------ */
+function formatIndexMeta() {
+  var metas = document.querySelectorAll('.project-card .caption > .mono');
+
+  for (var i = 0; i < metas.length; i++) {
+    var el = metas[i];
+    var txt = el.textContent.replace(/\s+/g, ' ').trim();
+
+    var sep = txt.lastIndexOf('·');
+    if (sep === -1) continue; // bereits umgebrochen
+
+    var subject = txt.slice(0, sep).trim();
+    var tail = txt.slice(sep + 1).trim();
+    var found = tail.match(/\d{4}/);
+    var year = found ? found[0] : tail;
+
+    el.textContent = '';
+
+    var parts = subject.split(',');
+    for (var p = 0; p < parts.length; p++) {
+      var part = parts[p].trim();
+      if (!part) continue;
+      var last = p === parts.length - 1;
+      el.appendChild(document.createTextNode(last ? part : part + ','));
+      if (!last) el.appendChild(document.createElement('br'));
+    }
+
+    var y = document.createElement('span');
+    y.className = 'meta-year';
+    y.textContent = year;
+    el.appendChild(y);
+  }
+}
+
+/* ---- 1) Sprachumschalter ------------------------------------------------
    Übersetzbare Elemente tragen ein data-de="…"; der englische Text bleibt
    der sichtbare Standard im HTML (und wird als data-en gecacht).
-   ======================================================================== */
+   ------------------------------------------------------------------------ */
 (function () {
   var KEY = 'ristl-lang';
   var els = [].slice.call(document.querySelectorAll('[data-de]'));
 
-  // Englischen Ausgangstext einmalig sichern
   els.forEach(function (el) {
     if (!el.hasAttribute('data-en')) {
       el.setAttribute('data-en', el.innerHTML.trim());
@@ -25,10 +68,10 @@
       if (v != null) el.innerHTML = v;
     });
     toggles.forEach(function (b) {
-      // Button zeigt die jeweils ANDERE Sprache an
       b.textContent = lang === 'de' ? 'EN' : 'DE';
       b.setAttribute('aria-label', lang === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln');
     });
+    formatIndexMeta(); // nach dem Sprachwechsel erneut umbrechen
     try { localStorage.setItem(KEY, lang); } catch (e) {}
   }
 
@@ -47,9 +90,12 @@
   apply(saved);
 })();
 
-/* ---- Werk-Register: Sichtfenster folgt der angesteuerten Zeile ----------
+// Falls keine übersetzbaren Elemente vorhanden sind, trotzdem umbrechen
+formatIndexMeta();
+
+/* ---- 3) Sichtfenster ----------------------------------------------------
    Die Bilder stammen aus den Karten, die das Studio schreibt. Neue Projekte
-   erscheinen dadurch automatisch, ohne dass hier etwas gepflegt werden muss.
+   erscheinen dadurch automatisch. Ruhezustand: leer.
    ------------------------------------------------------------------------ */
 (function () {
   var layout = document.querySelector('.index-layout');
@@ -75,7 +121,7 @@
     var shot = document.createElement('img');
     shot.src = src.getAttribute('src');
     shot.alt = '';
-    if (i > 0) shot.loading = 'lazy';
+    shot.loading = 'lazy';
     frame.appendChild(shot);
     shots.push(shot);
 
@@ -87,11 +133,11 @@
     card.addEventListener('focus', show);
   });
 
-  // Ruhezustand: kein Bild, leerer Rahmen
   function clear() {
     shots.forEach(function (s) { if (s) s.classList.remove('on'); });
     frame.classList.remove('on');
   }
+
   var list = layout.querySelector('.projects');
   list.addEventListener('mouseleave', clear);
   list.addEventListener('focusout', function (e) {
