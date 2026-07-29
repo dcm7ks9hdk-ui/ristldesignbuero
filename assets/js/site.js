@@ -81,15 +81,22 @@
 
     function show() {
       shots.forEach(function (s, k) { if (s) s.classList.toggle('on', k === i); });
+      frame.classList.add('on');
     }
     card.addEventListener('mouseenter', show);
     card.addEventListener('focus', show);
   });
 
-  // Erstes vorhandenes Bild als Ruhezustand
-  for (var i = 0; i < shots.length; i++) {
-    if (shots[i]) { shots[i].classList.add('on'); break; }
+  // Ruhezustand: kein Bild, leerer Rahmen
+  function clear() {
+    shots.forEach(function (s) { if (s) s.classList.remove('on'); });
+    frame.classList.remove('on');
   }
+  var list = layout.querySelector('.projects');
+  list.addEventListener('mouseleave', clear);
+  list.addEventListener('focusout', function (e) {
+    if (!list.contains(e.relatedTarget)) clear();
+  });
 
   layout.appendChild(panel);
 })();
