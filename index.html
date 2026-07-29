@@ -33,9 +33,10 @@
   <div class="wrap">
     <a class="wordmark" href="index.html"><strong>RISTL.DESIGNBUERO</strong> <span>Pascal Ristl</span></a>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html#work" aria-current="page">Work</a>
-      <a href="ueber.html">About</a>
-      <a href="mailto:ristlp@ristldesignbuero.com">Contact</a>
+      <a href="index.html#work" aria-current="page" data-de="Projekte">Work</a>
+      <a href="ueber.html" data-de="Über mich">About</a>
+      <a href="mailto:ristlp@ristldesignbuero.com" data-de="Kontakt">Contact</a>
+      <button type="button" class="lang-toggle" data-lang-toggle aria-label="Auf Deutsch wechseln">DE</button>
     </nav>
   </div>
 </header>
@@ -43,21 +44,37 @@
 <main>
 
   <section class="intro wrap">
-    <h1>Design with a system.<br><span style="white-space: nowrap;">Space, Composition, Detail.</span></h1>
-    <p class="lead">
+    <span class="mono" data-de="Portfolio — Innenarchitektur &amp; Handwerk">Portfolio — Interior architecture &amp; craft</span>
+    <h1 data-de="Vom Detail zum Raum.">From detail to space.</h1>
+    <p class="h1-sub" data-de="Gelernter Schreiner, jetzt im Innenarchitektur-Studium.">A trained cabinetmaker, now studying interior architecture.</p>
+    <p class="lead" data-de="Portfolio von Pascal Ristl — gelernter Schreiner, jetzt im Innenarchitektur-Studium an der TH Rosenheim. Ich gestalte Möbel und Räume mit einem praktischen Verständnis für Material und Konstruktion — vom Detail bis zum Raum.">
       Portfolio of Pascal Ristl — trained cabinetmaker, now studying
-      interior architecture at TH Rosenheim. Rooted in craft,
-      reduced to the essential.
+      interior architecture at TH Rosenheim. I design furniture and
+      spaces with a hands-on understanding of material and construction —
+      from the detail to the room.
     </p>
   </section>
 
   <section id="work" class="wrap">
     <div class="section-head">
-      <span class="mono">Work</span>
+      <span class="mono" data-de="Projekte">Work</span>
       <span class="mono">2026</span>
     </div>
 
     <div class="projects">
+
+      <a class="project-card" href="projekte/blickdicht.html">
+        <div class="thumb">
+          <img src="assets/img/blickdicht/02.jpg" alt="&quot;Blickdicht&quot; — Cover" loading="lazy">
+        </div>
+        <div class="caption">
+          <div class="cap-main">
+            <span class="title">"Blickdicht"</span>
+          </div>
+          <span class="mono">Schreiner Gesellenstück · 2024</span>
+        </div>
+      </a>
+
 
       <a class="project-card" href="projekte/vau2.html">
         <div class="thumb">
@@ -66,7 +83,7 @@
         <div class="caption">
           <div class="cap-main">
             <span class="title">VAU2</span>
-            <span class="card-sub">Modular flat-pack trestle, assembled without tools.</span>
+            <span class="card-sub" data-de="Modularer Klappbock, werkzeuglos montiert.">Modular flat-pack trestle, assembled without tools.</span>
           </div>
           <span class="mono">Design · 2026</span>
         </div>
@@ -80,9 +97,9 @@
         <div class="caption">
           <div class="cap-main">
             <span class="title">Water Rescue Station "See Horse"</span>
-            <span class="card-sub">A timber rescue station on stilts, built to rise with the lake.</span>
+            <span class="card-sub" data-de="Eine Rettungsstation aus Holz auf Stelzen — gebaut, um mit dem See zu steigen.">A timber rescue station on stilts, built to rise with the lake.</span>
           </div>
-          <span class="mono">Building construction, timber focus · 2026</span>
+          <span class="mono" data-de="Baukonstruktion, Schwerpunkt Holz · 2026">Building construction, timber focus · 2026</span>
         </div>
       </a>
 
@@ -94,9 +111,9 @@
         <div class="caption">
           <div class="cap-main">
             <span class="title">SYSTEMATIC</span>
-            <span class="card-sub">One word — systematic — turned into colour, composition, type and space.</span>
+            <span class="card-sub" data-de="Ein Wort — systematisch — übersetzt in Farbe, Komposition, Typografie und Raum.">One word — systematic — turned into colour, composition, type and space.</span>
           </div>
-          <span class="mono">Communication &amp; Composition · Summer 2026</span>
+          <span class="mono" data-de="Kommunikation &amp; Komposition · Sommer 2026">Communication &amp; Composition · Summer 2026</span>
         </div>
       </a>
 
@@ -113,12 +130,13 @@
       <a href="https://www.instagram.com/ristl.designbuero/" target="_blank" rel="noopener">Instagram ↗</a>
     </div>
     <div class="footer-group">
-      <a href="impressum.html">Imprint</a>
-      <a href="datenschutz.html">Privacy</a>
+      <a href="impressum.html" data-de="Impressum">Imprint</a>
+      <a href="datenschutz.html" data-de="Datenschutz">Privacy</a>
       <span>© 2026 Pascal Ristl</span>
     </div>
   </div>
 </footer>
 
+<script src="assets/js/site.js"></script>
 </body>
 </html>
