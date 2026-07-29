@@ -46,3 +46,50 @@
 
   apply(saved);
 })();
+
+/* ---- Werk-Register: Sichtfenster folgt der angesteuerten Zeile ----------
+   Die Bilder stammen aus den Karten, die das Studio schreibt. Neue Projekte
+   erscheinen dadurch automatisch, ohne dass hier etwas gepflegt werden muss.
+   ------------------------------------------------------------------------ */
+(function () {
+  var layout = document.querySelector('.index-layout');
+  if (!layout) return;
+
+  var cards = [].slice.call(layout.querySelectorAll('.project-card'));
+  if (!cards.length) return;
+
+  var panel = document.createElement('div');
+  panel.className = 'index-preview';
+  panel.setAttribute('aria-hidden', 'true');
+
+  var frame = document.createElement('div');
+  frame.className = 'index-preview-frame';
+  panel.appendChild(frame);
+
+  var shots = [];
+
+  cards.forEach(function (card, i) {
+    var src = card.querySelector('.thumb img');
+    if (!src) { shots.push(null); return; }
+
+    var shot = document.createElement('img');
+    shot.src = src.getAttribute('src');
+    shot.alt = '';
+    if (i > 0) shot.loading = 'lazy';
+    frame.appendChild(shot);
+    shots.push(shot);
+
+    function show() {
+      shots.forEach(function (s, k) { if (s) s.classList.toggle('on', k === i); });
+    }
+    card.addEventListener('mouseenter', show);
+    card.addEventListener('focus', show);
+  });
+
+  // Erstes vorhandenes Bild als Ruhezustand
+  for (var i = 0; i < shots.length; i++) {
+    if (shots[i]) { shots[i].classList.add('on'); break; }
+  }
+
+  layout.appendChild(panel);
+})();
