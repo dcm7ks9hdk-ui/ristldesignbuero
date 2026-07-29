@@ -1,0 +1,76 @@
+{
+  "title": "Schlicht.",
+  "slug": "schlicht",
+  "subtitle": "reduziert in der Form, bewegt im Stand.",
+  "context": "Freies Projekt",
+  "period": "01-02/2025",
+  "disciplines": "Möbelbau, Konstruktion, Planung",
+  "year": "2025",
+  "cover": "01.jpg",
+  "media": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg"
+  ],
+  "blocks": [
+    {
+      "type": "intro",
+      "file": "01.jpg",
+      "text": "Ein massiver Schreibtisch aus Eiche, in klassischer Handwerkskunst selbst entworfen und gefertigt. \nDie konisch zulaufenden Beine und die Schweizer Kante der Platte verleihen dem Tisch eine leichte, ruhige Erscheinung. Getragen wird diese Klarheit von einer soliden Konstruktion: klassische Schlitz- und Zapfenverbindungen sorgen für dauerhafte Stabilität, während lösbare Schraubverbindungen den Schreibtisch flexibel im Auf- und Abbau halten. So verbindet er handwerkliche Langlebigkeit mit einer reduzierten, zeitlosen Ästhetik."
+    },
+    {
+      "type": "heading",
+      "kicker": "",
+      "text": "Bauprozess"
+    },
+    {
+      "type": "gallery",
+      "items": [
+        {
+          "file": "06.jpg",
+          "caption": ""
+        },
+        {
+          "file": "04.jpg",
+          "caption": ""
+        },
+        {
+          "file": "03.jpg",
+          "caption": ""
+        },
+        {
+          "file": "07.jpg",
+          "caption": ""
+        },
+        {
+          "file": "05.jpg",
+          "caption": ""
+        },
+        {
+          "file": "02.jpg",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "file": "08.jpg",
+      "width": "half",
+      "bleed": false,
+      "caption": ""
+    },
+    {
+      "type": "image",
+      "file": "09.jpg",
+      "width": "half",
+      "bleed": false,
+      "caption": ""
+    }
+  ]
+}
