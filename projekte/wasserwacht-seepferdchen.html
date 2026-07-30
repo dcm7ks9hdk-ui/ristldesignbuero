@@ -20,9 +20,10 @@
   <div class="wrap">
     <a class="wordmark" href="../index.html"><strong>RISTL.DESIGNBUERO</strong> <span>— Pascal Ristl</span></a>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="../index.html#work" aria-current="page">Work</a>
-      <a href="../ueber.html">About</a>
-      <a href="mailto:ristlp@ristldesignbuero.com">Contact</a>
+      <a href="../index.html#work" aria-current="page" data-de="Projekte">Work</a>
+      <a href="../ueber.html" data-de="Über mich">About</a>
+      <a href="mailto:ristlp@ristldesignbuero.com" data-de="Kontakt">Contact</a>
+      <button type="button" class="lang-toggle" data-lang-toggle aria-label="Auf Deutsch wechseln">DE</button>
     </nav>
   </div>
 </header>
@@ -180,6 +181,24 @@
       wrap.addEventListener('mouseleave', play);
       marks(); play();
     });
+
+    // ---- alle uebrigen Grafiken ebenfalls zoombar (Einzelbilder, Plaene,
+    //      Intro-Cover) -- Galerien bringen ihre eigene Navigation schon mit ----
+    var singles = [].slice.call(document.querySelectorAll('img')).filter(function (im) {
+      if (im.closest('.carousel-wrap')) return false;   // schon angebunden
+      if (im.closest('#lightbox')) return false;        // das Zoom-Bild selbst
+      if (im.closest('.site-header, .site-footer')) return false;
+      return true;
+    });
+    var singleItems = singles.map(function (im) {
+      var fig = im.closest('figure');
+      var cap = fig ? fig.querySelector('figcaption') : null;
+      return { src: im.getAttribute('src'), cap: cap ? cap.textContent.trim() : '' };
+    });
+    singles.forEach(function (im, i) {
+      im.classList.add('zoomable');
+      im.addEventListener('click', function () { openLb(singleItems, i); });
+    });
   })();
   </script>
 
@@ -193,12 +212,13 @@
       <a href="https://www.instagram.com/ristl.designbuero/" target="_blank" rel="noopener">Instagram ↗</a>
     </div>
     <div class="footer-group">
-      <a href="../impressum.html">Imprint</a>
-      <a href="../datenschutz.html">Privacy</a>
+      <a href="../impressum.html" data-de="Impressum">Imprint</a>
+      <a href="../datenschutz.html" data-de="Datenschutz">Privacy</a>
       <span>© 2026 Pascal Ristl</span>
     </div>
   </div>
 </footer>
 
+<script src="../assets/js/site.js?v=4"></script>
 </body>
 </html>
