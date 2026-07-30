@@ -180,7 +180,7 @@
         pos = Math.round(c.scrollLeft / c.clientWidth); marks(); }, 250); });
       figs.forEach(function (f, i) { var im = f.querySelector('img'); if (im) im.addEventListener('click', function () { openLb(items(), i); }); });
       function play() { stop(); if (figs.length < 2) return; timer = setInterval(function () {
-        if (lb.classList.contains('on')) return; goTo(pos + 1); }, 4500); }
+        if (lb.classList.contains('on')) return; goTo(pos + 1); }, 3000); }
       function stop() { if (timer) { clearInterval(timer); timer = null; } }
       wrap.addEventListener('mouseenter', stop);
       wrap.addEventListener('mouseleave', play);
