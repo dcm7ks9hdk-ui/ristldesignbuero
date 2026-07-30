@@ -386,6 +386,9 @@ a:focus-visible {
   margin-top: 1.1rem;
 }
 
+/* Zoombare Grafiken auf Projektseiten */
+.zoomable, .carousel figure img { cursor: zoom-in; }
+
 /* ---- Bild-Platzhalter (solange Fotos fehlen) ---------------------------- */
 
 .img-placeholder {
