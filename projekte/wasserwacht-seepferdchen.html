@@ -128,6 +128,9 @@
   </section>
   <script>
   (function () {
+    // Im Studio-Editor nicht eingreifen: dort wird der Quelltext bearbeitet.
+    if (document.body.hasAttribute('data-studio-page')) return;
+
     // ---- Lightbox (Zoom) aufbauen ----
     var lb = document.createElement('div'); lb.id = 'lightbox';
     lb.innerHTML = '<button class="lb-close" aria-label="Close">\u00d7</button>'
@@ -272,6 +275,6 @@
   </div>
 </footer>
 
-<script src="../assets/js/site.js?v=4"></script>
+<script src="../assets/js/site.js?v=5"></script>
 </body>
 </html>

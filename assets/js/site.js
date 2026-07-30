@@ -6,12 +6,18 @@
    3) Sichtfenster, das der angesteuerten Zeile folgt
    ======================================================================== */
 
+/* Im Studio-Editor nichts veraendern: dort wird der Quelltext bearbeitet.
+   Wuerde hier die Sprache umgeschaltet, merkte sich der Editor den
+   uebersetzten Text als Original und das Speichern schluege fehl. */
+var RISTL_IM_STUDIO = document.body.hasAttribute('data-studio-page');
+
 /* ---- 2) Einordnung umbrechen -------------------------------------------
    Das Studio schreibt "<Fach> · <Jahr>" in eine Zeile. Hier wird daraus:
    Fach (an Kommata umgebrochen), Jahreszahl allein in der letzten Zeile,
    ohne Trennzeichen und ohne Semesterangabe. Mehrfach aufrufbar.
    ------------------------------------------------------------------------ */
 function formatIndexMeta() {
+  if (RISTL_IM_STUDIO) return;
   var metas = document.querySelectorAll('.project-card .caption > .mono');
 
   for (var i = 0; i < metas.length; i++) {
@@ -49,6 +55,7 @@ function formatIndexMeta() {
    der sichtbare Standard im HTML (und wird als data-en gecacht).
    ------------------------------------------------------------------------ */
 (function () {
+  if (RISTL_IM_STUDIO) return;
   var KEY = 'ristl-lang';
   var els = [].slice.call(document.querySelectorAll('[data-de]'));
 
@@ -98,6 +105,7 @@ formatIndexMeta();
    erscheinen dadurch automatisch. Ruhezustand: leer.
    ------------------------------------------------------------------------ */
 (function () {
+  if (RISTL_IM_STUDIO) return;
   var layout = document.querySelector('.index-layout');
   if (!layout) return;
 
