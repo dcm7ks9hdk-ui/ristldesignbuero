@@ -100,9 +100,38 @@ function formatIndexMeta() {
 // Falls keine übersetzbaren Elemente vorhanden sind, trotzdem umbrechen
 formatIndexMeta();
 
+/* ---- 4) Kante der Kopfleiste --------------------------------------------
+   Statt einer harten Linie erscheint eine weiche Kante — und zwar erst dann,
+   wenn tatsaechlich Inhalt unter der Glasebene durchlaeuft. Am Seitenanfang
+   traegt die Leiste keine Trennung, weil es nichts zu trennen gibt.
+   ------------------------------------------------------------------------ */
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+
+  var ticking = false;
+
+  function update() {
+    header.classList.toggle('is-scrolled', window.scrollY > 4);
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }, { passive: true });
+
+  update();
+})();
+
 /* ---- 3) Sichtfenster ----------------------------------------------------
    Die Bilder stammen aus den Karten, die das Studio schreibt. Neue Projekte
-   erscheinen dadurch automatisch. Ruhezustand: leer.
+   erscheinen dadurch automatisch.
+
+   Ruhezustand: die erste Arbeit. Frueher war das Fenster leer, bis jemand
+   eine Zeile ansteuerte — neben dem groesseren Register stand dort dann eine
+   leere Flaeche. Jetzt traegt die Spalte auch im Ruhezustand ein Bild.
    ------------------------------------------------------------------------ */
 (function () {
   if (RISTL_IM_STUDIO) return;
@@ -141,16 +170,22 @@ formatIndexMeta();
     card.addEventListener('focus', show);
   });
 
-  function clear() {
-    shots.forEach(function (s) { if (s) s.classList.remove('on'); });
-    frame.classList.remove('on');
+  /* Ruhezustand: das erste vorhandene Bild */
+  function rest() {
+    var first = -1;
+    for (var k = 0; k < shots.length; k++) {
+      if (shots[k]) { first = k; break; }
+    }
+    shots.forEach(function (s, k) { if (s) s.classList.toggle('on', k === first); });
+    frame.classList.toggle('on', first !== -1);
   }
 
   var list = layout.querySelector('.projects');
-  list.addEventListener('mouseleave', clear);
+  list.addEventListener('mouseleave', rest);
   list.addEventListener('focusout', function (e) {
-    if (!list.contains(e.relatedTarget)) clear();
+    if (!list.contains(e.relatedTarget)) rest();
   });
 
   layout.appendChild(panel);
+  rest();
 })();
