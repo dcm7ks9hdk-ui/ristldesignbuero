@@ -1,6 +1,8 @@
 {
   "title": "Water Rescue Station \"See Horse\"",
   "slug": "wasserwacht-seepferdchen",
+  "subtitle": "A timber rescue station on stilts, built to rise with the lake.",
+  "role": "Team project",
   "context": "Building construction, timber focus",
   "period": "Summer 2026",
   "disciplines": "Construction · Timber · Design",
@@ -136,6 +138,5 @@
       "type": "text",
       "text": "This project was created in collaboration with Franziska Grupe."
     }
-  ],
-  "subtitle": "A timber rescue station on stilts, built to rise with the lake."
+  ]
 }

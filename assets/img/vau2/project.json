@@ -1,6 +1,8 @@
 {
   "title": "VAU2",
   "slug": "vau2",
+  "subtitle": "Modular flat-pack trestle, assembled without tools.",
+  "role": "Team project",
   "context": "Design",
   "period": "SoSe2026",
   "disciplines": "Mobeldesign, Konstruktion, Entwurf",
@@ -48,6 +50,5 @@
       "type": "text",
       "text": "This project was created in collaboration with Kilian Ritter (@ritter__studio)."
     }
-  ],
-  "subtitle": "Modular flat-pack trestle, assembled without tools."
+  ]
 }
