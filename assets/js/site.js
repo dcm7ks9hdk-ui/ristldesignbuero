@@ -165,10 +165,26 @@ formatIndexMeta();
     function show() {
       shots.forEach(function (s, k) { if (s) s.classList.toggle('on', k === i); });
       frame.classList.add('on');
+      place(card);
     }
     card.addEventListener('mouseenter', show);
     card.addEventListener('focus', show);
   });
+
+  /* Das Fenster sitzt auf der Hoehe der Zeile, die es zeigt: Mitte auf Mitte,
+     begrenzt auf die Hoehe des Registers, damit es weder oben noch unten
+     darueber hinauslaeuft. Unter 900px gibt es kein Fenster — dort traegt
+     jede Zeile ihr eigenes Bild. */
+  function place(card) {
+    if (window.innerWidth <= 900) { frame.style.transform = ''; return; }
+    var h = frame.offsetHeight;
+    var span = list.offsetHeight - h;
+    var y = card.getBoundingClientRect().top - list.getBoundingClientRect().top
+            + (card.offsetHeight - h) / 2;
+    if (span < 0) span = 0;
+    y = Math.max(0, Math.min(y, span));
+    frame.style.transform = 'translateY(' + Math.round(y) + 'px)';
+  }
 
   /* Ruhezustand: das erste vorhandene Bild */
   function rest() {
@@ -178,6 +194,7 @@ formatIndexMeta();
     }
     shots.forEach(function (s, k) { if (s) s.classList.toggle('on', k === first); });
     frame.classList.toggle('on', first !== -1);
+    if (first !== -1) place(cards[first]);
   }
 
   var list = layout.querySelector('.projects');
@@ -188,4 +205,11 @@ formatIndexMeta();
 
   layout.appendChild(panel);
   rest();
+
+  /* Beim Umbrechen des Layouts stimmt die alte Verschiebung nicht mehr */
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(rest, 120);
+  });
 })();

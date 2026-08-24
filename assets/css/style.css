@@ -472,7 +472,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   padding-bottom: clamp(var(--s-8), 14vh, var(--s-10));
 }
 
-.projects { border-bottom: 1px solid var(--hairline); }
+.projects { border-bottom: 0; }
 
 .project-card {
   display: grid;
@@ -480,7 +480,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
   gap: 0;
   align-items: baseline;
   padding: clamp(var(--s-5), 3vw, var(--s-7)) 0;
-  border-top: 1px solid var(--hairline);
   transition: opacity var(--dur-fast) var(--ease);
 }
 
@@ -551,8 +550,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
   text-decoration-thickness: 1px;
 }
 
-/* Sichtfenster: folgt der angesteuerten Zeile */
-.index-preview { position: sticky; top: calc(var(--header-h) + var(--s-6)); }
+/* Sichtfenster: sitzt auf der Hoehe der angesteuerten Zeile.
+   Die Verschiebung rechnet site.js aus und setzt sie als translateY auf den
+   Rahmen — die Spalte selbst bleibt im Fluss stehen. */
+.index-preview { position: relative; align-self: start; }
 
 /* Ruhezustand: leer. Das Bild erscheint erst beim Ansteuern einer Zeile. */
 .index-preview-frame {
@@ -564,7 +565,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   background: transparent;
   transition: border-color var(--dur-base) var(--ease),
               background-color var(--dur-base) var(--ease),
-              box-shadow var(--dur-base) var(--ease);
+              box-shadow var(--dur-base) var(--ease),
+              transform var(--dur-base) var(--ease);
+  will-change: transform;
 }
 
 /* Die groesste Flaeche der Seite liegt am hoechsten */
