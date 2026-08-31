@@ -940,6 +940,42 @@ figure.bleed figcaption { max-width: var(--maxw); margin: var(--s-2) auto 0; pad
   @keyframes lb-rise {
     from { opacity: 0; transform: scale(0.97); }
   }
+
+  /* Keyframes koennen nur ankommen, nicht gehen: beim Schliessen faellt die
+     Flaeche hart weg. Wo der Browser Uebergaenge auf `display` kann, wird
+     daraus ein Uebergang — der laesst sich unterbrechen und hat einen
+     Austritt. Der ist kuerzer als der Eintritt: Oeffnen ist eine
+     Entscheidung, Schliessen ist erledigt. */
+  @supports (transition-behavior: allow-discrete) {
+    #lightbox {
+      opacity: 0;
+      transition: opacity var(--dur-fast) var(--ease),
+                  display var(--dur-fast) var(--ease) allow-discrete;
+    }
+    #lightbox figure {
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity var(--dur-fast) var(--ease),
+                  transform var(--dur-fast) var(--ease);
+    }
+    #lightbox.on {
+      opacity: 1;
+      animation: none;
+      transition: opacity var(--dur-base) var(--ease),
+                  display var(--dur-base) var(--ease) allow-discrete;
+    }
+    #lightbox.on figure {
+      opacity: 1;
+      transform: none;
+      animation: none;
+      transition: opacity var(--dur-base) var(--ease),
+                  transform var(--dur-base) var(--ease);
+    }
+    @starting-style {
+      #lightbox.on { opacity: 0; }
+      #lightbox.on figure { opacity: 0; transform: scale(0.97); }
+    }
+  }
 }
 
 /* Der Grund tritt zurueck, solange die Lightbox offen ist. Kein zusaetzliches
@@ -1069,7 +1105,9 @@ figure.bleed figcaption { max-width: var(--maxw); margin: var(--s-2) auto 0; pad
 .palette .swatch .color { aspect-ratio: 1 / 1; }
 .palette .swatch .hex {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  /* Nicht unter 0.7rem: darunter faellt Mono mit weiter Laufweite unter die
+     11px-Grenze, ab der kleine Schrift auf normalen Bildschirmen ausfranst. */
+  font-size: 0.7rem;
   letter-spacing: var(--tr-label);
   color: var(--ink-soft);
   padding: var(--s-1) var(--s-2);
@@ -1310,6 +1348,18 @@ figure.bleed figcaption { max-width: var(--maxw); margin: var(--s-2) auto 0; pad
   /* Weiche Schatten tragen bei hohem Kontrast nichts bei, Kanten schon */
   .index-preview-frame.on, .carousel, .project-card .thumb { box-shadow: none; }
   .index-preview-frame.on, .carousel { border-color: var(--ink); }
+}
+
+/* Die beiden Farbwerte oben sind hell gedacht: dunkles Grau auf Papier. Im
+   Dunkeln kehrt sich ihre Wirkung um — #4a4a4a auf #101010 sind 2.1:1, also
+   weniger Kontrast als der Normalfall (6.8:1), nicht mehr. Hoher Kontrast
+   heisst hier heller, nicht dunkler. Steht nach dem Block oben, damit es ihn
+   ueberschreibt. */
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root {
+    --ink-soft: #c9c9c9;     /* 11.5:1 auf #101010 */
+    --hairline: #6f6f6f;
+  }
 }
 
 /* ---- Mobil ---------------------------------------------------------------- */
