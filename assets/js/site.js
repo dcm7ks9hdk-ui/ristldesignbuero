@@ -213,3 +213,25 @@ formatIndexMeta();
     resizeTimer = setTimeout(rest, 120);
   });
 })();
+
+/* ---- 5) Galerie-Format auf dem Telefon ----------------------------------
+   Der Rahmen uebernimmt das Seitenverhaeltnis des ersten Bildes, damit er
+   auf schmalen Bildschirmen nicht hoeher ist als die Bilder. Nur das erste
+   Bild wird dafuer gebraucht, die uebrigen laden weiter erst beim Wischen.
+   Das CSS nutzt den Wert nur bis 700px Breite.
+   ------------------------------------------------------------------------ */
+(function () {
+  if (RISTL_IM_STUDIO) return;
+  [].forEach.call(document.querySelectorAll('.carousel'), function (c) {
+    var first = c.querySelector('figure img');
+    if (!first) return;
+
+    function set() {
+      if (!first.naturalWidth || !first.naturalHeight) return;
+      c.style.setProperty('--carousel-ratio', (first.naturalWidth / first.naturalHeight).toFixed(3));
+    }
+
+    if (first.complete) set();
+    else first.addEventListener('load', set, { once: true });
+  });
+})();
