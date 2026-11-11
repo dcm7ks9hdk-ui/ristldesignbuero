@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.ristldesignbuero.com/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
-    <loc>https://www.ristldesignbuero.com/ueber.html</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://www.ristldesignbuero.com/about.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
-    <loc>https://www.ristldesignbuero.com/projekte/systematisch.html</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://www.ristldesignbuero.com/p/seepferdchen.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.ristldesignbuero.com/p/watercube.html</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
 </urlset>

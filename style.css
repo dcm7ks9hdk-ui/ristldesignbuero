@@ -1,0 +1,166 @@
+/* RISTL.DESIGNBUERO neu — Helvetica Light, Weissraum, Schwarz auf Weiss
+   Typografie: vier Groessen, ein Schnitt (300), alles linksbuendig auf einer Flucht. */
+:root{
+  --ink:#111;--soft:#6f6f6f;--faint:#c9c9c5;--line:#e4e4e0;--paper:#fff;
+  --gut:clamp(28px,7vw,112px);            /* Abstand der Schrift zum Rand */
+  --spalt:clamp(16px,2vw,32px);           /* Spaltenabstand im 12er-Raster */
+  --klein:14px;                           /* Meta, Navigation, Bildzeilen */
+  --text:17px;                            /* Lesetext */
+  --lead:clamp(21px,1.95vw,27px);         /* Einleitung */
+  --gross:clamp(38px,5.8vw,84px);         /* Titel */
+  --z:1.5rem;                             /* Grundzeile */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);
+  font:300 var(--text)/1.5 "Helvetica Neue",Helvetica,Roboto,"Segoe UI",Arial,sans-serif;
+  min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;font-kerning:normal;font-synthesis:none;
+  font-variant-numeric:lining-nums tabular-nums;hanging-punctuation:first}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:1px solid var(--ink);outline-offset:6px}
+img{display:block;width:100%;height:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+h1{font-weight:300;font-size:var(--gross);line-height:1;letter-spacing:-.036em;
+  margin-left:-.05em;text-wrap:balance}   /* optisch auf die Flucht gezogen */
+p{text-wrap:pretty}
+dt,dd{font-weight:300}
+
+/* Kopf und Fuss: eine Groesse, eine Flucht */
+.top,.bottom{display:flex;justify-content:space-between;align-items:baseline;
+  padding:clamp(28px,4.4vw,60px) var(--gut);font-size:var(--klein);line-height:var(--z);letter-spacing:.012em}
+.brand span{color:var(--soft)}
+.top nav{display:flex;gap:2.4em}
+.top a,.bottom a{transition:color .2s}
+.top nav a:hover,.bottom a:hover{color:var(--soft)}
+.top [aria-current]{color:var(--soft)}
+.bottom{margin-top:auto;padding-top:clamp(96px,14vw,200px);align-items:center;gap:2em;color:var(--soft)}
+.bottom a:hover{color:var(--ink)}
+.recht{display:flex;gap:2.4em}
+main{flex:1}
+
+/* Startseite: vier Piktogramme, buendig mit Kopf- und Fusszeile */
+.home main{display:grid;align-content:center}
+.home .bottom{padding-top:clamp(28px,4.4vw,60px)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,clamp(120px,13vw,190px)));justify-content:space-between;
+  column-gap:var(--spalt);padding:clamp(24px,5vh,60px) var(--gut);width:100%}
+.tile{display:block;color:var(--ink)}
+.tile svg{display:block;width:100%;aspect-ratio:1;overflow:visible;fill:none;stroke:currentColor;stroke-width:1px;
+  stroke-linecap:square;stroke-linejoin:miter;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.tile svg *{vector-effect:non-scaling-stroke}
+a.tile:hover svg{transform:translateY(-6px)}
+.cap{display:grid;grid-template-columns:1.7em 1fr;margin-top:clamp(24px,2.6vw,40px);
+  font-size:var(--klein);line-height:1.4;letter-spacing:.012em}
+.cap .n{color:var(--soft)}
+.cap .t{text-wrap:balance}
+.soon{display:block}
+.tile.bald{color:var(--faint);cursor:default}
+.tile.bald .cap .n{color:inherit}
+
+/* kleine Piktogramm-Leiste auf den Unterseiten */
+.piktos{display:flex;gap:22px;align-items:center}
+.piktos.oben{padding:0 var(--gut)}
+.pk{display:block;width:24px;height:24px;color:var(--faint);transition:color .2s;position:relative}
+.pk::after{content:"";position:absolute;inset:-10px}        /* Tippflaeche 44 px */
+.pk svg{display:block;width:100%;height:100%;overflow:visible;fill:none;stroke:currentColor;stroke-width:1px;
+  stroke-linecap:square;stroke-linejoin:miter}
+.pk svg *{vector-effect:non-scaling-stroke}
+a.pk{color:#a3a3a0}
+a.pk:hover,.pk[aria-current]{color:var(--ink)}
+.pk.off{color:#dcdcd8}
+
+/* Projektseite: Titel ueber die Breite, darunter Einleitung links, Angaben rechts */
+.intro{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--spalt);align-items:start;
+  padding:clamp(56px,11vh,128px) var(--gut) clamp(64px,11vh,128px)}
+.intro h1{grid-column:1/-1;max-width:13em}
+.lead{grid-column:1/8;margin-top:calc(var(--z) * 1.6);max-width:27em;
+  font-size:var(--lead);line-height:1.3;letter-spacing:-.012em}
+.meta{grid-column:9/-1;margin-top:calc(var(--z) * 1.6 + .35em);font-size:var(--klein);line-height:1.55;letter-spacing:.012em;color:var(--soft)}
+.images{display:grid;gap:clamp(24px,4vw,56px);padding:0 var(--gut)}
+.images figure:nth-child(even){width:calc((100% - 11 * var(--spalt)) / 12 * 8 + 7 * var(--spalt));margin-left:auto}
+/* Abschnitte: Ueberschrift links in der Randspalte, Inhalt rechts */
+.sek{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--spalt);align-items:start;
+  margin:clamp(88px,14vh,170px) var(--gut) 0}
+.sek h2{grid-column:1/4;position:sticky;top:var(--z);font-weight:300;font-size:var(--klein);line-height:1.4;letter-spacing:.012em;color:var(--soft)}
+.inhalt{grid-column:4/-1}
+.prosa p{max-width:33em;margin-bottom:var(--z)}
+.prosa p:last-child{margin-bottom:0}
+.raster{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,3.4vw,56px) var(--spalt);align-items:start}
+.raster .breit{grid-column:1/-1}
+figcaption{margin-top:.8em;font-size:var(--klein);line-height:1.4;letter-spacing:.012em;color:var(--soft)}
+.zoom{display:block;cursor:zoom-in}
+.raster figure:not(.breit) .zoom{aspect-ratio:3/2}             /* gleiche Bildhoehe, Bildzeilen auf einer Linie */
+.raster figure:not(.breit) .zoom img{width:100%;height:100%;object-fit:contain}
+.raster.fuell figure:not(.breit) .zoom{aspect-ratio:4/3}
+.raster.fuell figure:not(.breit) .zoom img{object-fit:cover}
+.raster.quadrat figure:not(.breit) .zoom{aspect-ratio:1}
+.raster.frei figure:not(.breit) .zoom{aspect-ratio:auto}
+.raster.frei figure:not(.breit) .zoom img{height:auto}
+.images .portrait{width:calc((100% - 11 * var(--spalt)) / 12 * 5 + 4 * var(--spalt));margin-left:calc((100% - 11 * var(--spalt)) / 12 * 3 + 3 * var(--spalt))}
+.weg div{display:grid;grid-template-columns:7.5em 1fr;gap:var(--spalt);padding:.32em 0;max-width:40em}
+.weg dt{color:var(--soft);font-size:var(--klein);letter-spacing:.012em;padding-top:.2em}
+.meta a,.kontakt a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;text-decoration-color:var(--faint);transition:text-decoration-color .2s}
+.meta a:hover,.kontakt a:hover{text-decoration-color:var(--ink)}
+.kontakt p{line-height:1.9}
+.images .schmal{width:calc((100% - 11 * var(--spalt)) / 12 * 7 + 6 * var(--spalt));margin-left:auto}
+.raster.hoch figure:not(.breit) .zoom{aspect-ratio:4/5}
+.raster.hoch figure:not(.breit) .zoom img{object-fit:cover}
+.lupe{position:fixed;inset:0;z-index:10;background:var(--paper);display:grid;place-items:center;
+  padding:clamp(16px,3vw,48px);cursor:zoom-out;animation:auf .25s ease both}
+.lupe img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;min-height:0}
+@keyframes auf{from{opacity:0}to{opacity:1}}
+.next{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--spalt);align-items:baseline;
+  margin:clamp(88px,14vh,170px) var(--gut) 0}
+.next .n{grid-column:1/4;font-size:var(--klein);letter-spacing:.012em;color:var(--soft)}
+.next .t{grid-column:4/-1;font-size:var(--lead);line-height:1.3;letter-spacing:-.012em;transition:color .2s}
+.next:hover .t{color:var(--soft)}
+
+/* Textseiten */
+.text{padding:clamp(56px,11vh,128px) var(--gut) 0}
+.text h1{margin-bottom:calc(var(--z) * 1.6)}
+.text h2{font-weight:300;font-size:var(--klein);line-height:1.4;letter-spacing:.012em;color:var(--soft);margin:calc(var(--z) * 2) 0 calc(var(--z) / 2)}
+.text p{margin-bottom:var(--z);max-width:33em}
+.text p:first-of-type{font-size:var(--lead);line-height:1.3;letter-spacing:-.012em;max-width:27em}
+.text dl{margin:calc(var(--z) * 2.5) 0;max-width:36rem;font-size:var(--klein);line-height:1.4;letter-spacing:.012em}
+.text dl div{display:grid;grid-template-columns:8em 1fr;gap:1em;padding:.3em 0}
+.text dt{color:var(--soft)}
+.text .links{font-size:var(--klein);line-height:2;letter-spacing:.012em}
+.text a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;text-decoration-color:var(--faint);transition:text-decoration-color .2s}
+.text a:hover{text-decoration-color:var(--ink)}
+.legal{font-size:15px;line-height:1.55}
+.legal h1{font-size:clamp(30px,3.4vw,44px);letter-spacing:-.028em}
+.legal ul{padding-left:1.1em;margin-bottom:var(--z);max-width:33em}
+.legal p:first-of-type{font-size:inherit;line-height:inherit;letter-spacing:0;max-width:33em}
+
+/* sanftes Einblenden */
+@media (prefers-reduced-motion:no-preference){
+  .tile,.images figure,.intro,.text{animation:ein .9s cubic-bezier(.16,1,.3,1) both}
+  .tile{animation-delay:calc(var(--i) * 90ms)}
+  @keyframes ein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+}
+
+@media (max-width:900px){
+  .lead{grid-column:1/-1}
+  .meta{grid-column:1/-1;margin-top:calc(var(--z) * 1.5)}
+  .sek h2{grid-column:1/-1;position:static;margin-bottom:var(--z)}
+  .inhalt{grid-column:1/-1}
+  .next .n{grid-column:1/-1;margin-bottom:.4em}.next .t{grid-column:1/-1}
+}
+@media (max-width:820px){
+  .grid{grid-template-columns:repeat(2,minmax(0,132px));row-gap:clamp(48px,8vh,80px)}
+}
+@media (max-width:520px){
+  html{font-size:16px}
+  :root{--text:16px}
+  .top{flex-wrap:wrap;gap:.2em 1.4em}
+  .top nav{gap:1.6em}
+  .bottom{flex-wrap:wrap;gap:18px 2em}
+  .recht{gap:1.8em}
+  .images figure:nth-child(even){width:100%}
+  .raster{grid-template-columns:1fr}
+  .images .schmal{width:100%}
+  .images .portrait{width:100%;margin-left:0}
+  .weg div{grid-template-columns:6.2em 1fr}
+  .text dl div{grid-template-columns:6.4em 1fr}
+}
